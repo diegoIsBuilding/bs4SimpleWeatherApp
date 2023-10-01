@@ -2,13 +2,25 @@
 #import beautifulsoup and requests
 from bs4 import BeautifulSoup
 import requests
+import json
+import os
 
+# Ensure directories exist
+if not os.path.exists("data/raw"):
+    os.makedirs("data/raw")
+if not os.path.exists("data/processed"):
+    os.makedirs("data/processed")
+    
 #URL forecast.weather.gov 
 url = 'https://forecast.weather.gov/MapClick.php?lat=40.7143&lon=-74.006'
 
 try:
     html_text = requests.get(url, timeout = 10)
     html_text.raise_for_status()
+    
+    #save raw data
+    with open('data/raw/raw_data.html', 'w', encoding='utf-8') as file:
+        file.write(html_text.text)
     
     soup = BeautifulSoup(html_text.text, 'lxml')
     #Scrape - Temp, Humidity, Wind Speed, Barometer, Dewpoint, Visibilit, and Last Update data
@@ -30,7 +42,8 @@ try:
         
         #We are adding the key-value pair to our dictionary - associating the key to the value 
         weather_data[key] = value
-    print(weather_data)
+    with open('data/processed/weather_data.json', 'w') as file:
+        json.dump(weather_data, file, indent=4)
 
 except requests.ConnectionError:
     print('Failed to connect to the website')
