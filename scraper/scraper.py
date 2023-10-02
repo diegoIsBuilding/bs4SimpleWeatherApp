@@ -42,6 +42,8 @@ try:
         
         #We are adding the key-value pair to our dictionary - associating the key to the value 
         weather_data[key] = value
+    weather_data['Temprature'] = temprature_f
+    weather_data['Condition'] = weather_condition
     with open('data/processed/weather_data.json', 'w') as file:
         json.dump(weather_data, file, indent=4)
 
