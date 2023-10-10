@@ -1,10 +1,11 @@
 {
-    "Humidity": "52%",
-    "Wind Speed": "Vrbl 3 mph",
-    "Barometer": "30.17 in (1020.7 mb)",
-    "Dewpoint": "55\u00b0F (13\u00b0C)",
+    "Humidity": "53%",
+    "Wind Speed": "SW 6 mph",
+    "Barometer": "29.85 in (1009.9 mb)",
+    "Dewpoint": "38\u00b0F (3\u00b0C)",
     "Visibility": "10.00 mi",
-    "Last update": "1 Oct 6:51 pm EDT",
-    "Temprature": "74\u00b0F",
+    "Wind Chill": "54\u00b0F (12\u00b0C)",
+    "Last update": "9 Oct 9:51 pm EDT",
+    "Temprature": "55\u00b0F",
     "Condition": "Fair"
 }
